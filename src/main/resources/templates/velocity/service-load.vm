@@ -1,0 +1,16 @@
+    @AdminAuth(name = "获取${clsDesc}", orderNum = 5)
+    @ExplainOperation(name = "获取${clsDesc}信息", notes = "通过ID获取角色对象", params = {
+            @ExplainParam(value = "id", name = "${clsDesc}ID", require = true, type = "int", example = "1")
+    }, back = {
+            @ExplainReturn(field = "obj", type = "Object", notes = "获取到的对象信息")
+    })
+    public JsonResult loadOne(String params) {
+        try {
+            Integer id = Integer.parseInt(JsonTools.getJsonParam(params, "id"));
+            ${clsName} obj = ${daoName}.findOne(id);
+            return JsonResult.getInstance().set("obj", obj);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return JsonResult.error(e.getMessage());
+        }
+    }

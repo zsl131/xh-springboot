@@ -1,0 +1,12 @@
+package ${pck};
+
+import ${entityPck}.${clsName};
+import com.zslin.core.repository.BaseRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+
+/**
+ * Created by ${author} on ${date}.
+ */
+public interface ${daoClsName} extends BaseRepository<${clsName}, Integer>, JpaSpecificationExecutor<${clsName}> {
+
+}

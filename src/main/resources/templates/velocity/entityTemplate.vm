@@ -1,0 +1,25 @@
+package ${pck};
+
+import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.Data;
+
+import javax.persistence.*;
+import java.io.Serializable;
+${validatePck}
+
+/**
+ * ${name}
+ * @author ${author}
+ * @data generate on: ${date}
+ */
+@Data
+@Entity
+@Table(name = "${tableName}")
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public class ${clsName} implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+	${fields}
+}

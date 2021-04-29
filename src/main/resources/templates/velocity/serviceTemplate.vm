@@ -1,0 +1,39 @@
+package ${pck};
+
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.zslin.core.annotations.AdminAuth;
+import com.zslin.core.api.Explain;
+import com.zslin.core.api.ExplainOperation;
+import com.zslin.core.api.ExplainParam;
+import com.zslin.core.api.ExplainReturn;
+import ${daoClsPck}.${daoClsName};
+import com.zslin.core.dto.JsonResult;
+import com.zslin.core.dto.QueryListDto;
+import ${entityPck}.${clsName};
+import com.zslin.core.repository.SimplePageBuilder;
+import com.zslin.core.repository.SimpleSortBuilder;
+import com.zslin.core.tools.JsonTools;
+import com.zslin.core.tools.QueryTools;
+import com.zslin.core.validate.ValidationDto;
+import com.zslin.core.validate.ValidationTools;
+import com.zslin.core.exception.BusinessException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import com.zslin.core.tools.MyBeanUtils;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+/**
+ * Created by ${author} on ${date}.
+ */
+@Service
+@AdminAuth(name = "${clsDesc}管理", psn = "${pModuleName}", orderNum = 2, type = "1", url = "${url}")
+@Explain(name = "${clsDesc}管理", notes = "${clsDesc}管理")
+public class ${serviceClsName} {
+
+    @Autowired
+    private ${daoClsName} ${daoName};
+
+${functions}
+}

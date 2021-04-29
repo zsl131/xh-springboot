@@ -1,0 +1,19 @@
+    @AdminAuth(name = "删除${clsDesc}", orderNum = 4)
+    @ExplainOperation(name = "删除${clsDesc}", notes = "通过ID删除对象", params = {
+            @ExplainParam(value = "id", name = "对象ID", type = "int", require = true, example = "1")
+    }, back = {
+            @ExplainReturn(field = "message", notes = "提示信息"),
+            @ExplainReturn(field = "flag", notes = "删除标识")
+    })
+    @Transactional
+    public JsonResult delete(String params) {
+        try {
+            Integer id = Integer.parseInt(JsonTools.getJsonParam(params, "id"));
+            ${clsName} r = ${daoName}.findOne(id);
+            ${daoName}.delete(r);
+            return JsonResult.success("删除成功");
+        } catch (Exception e) {
+            e.printStackTrace();
+            return JsonResult.error(e.getMessage());
+        }
+    }
