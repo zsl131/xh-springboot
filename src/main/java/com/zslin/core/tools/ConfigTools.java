@@ -12,7 +12,7 @@ import java.io.File;
 @Data
 public class ConfigTools {
 
-    @Value("${config.filePath}")
+    @Value("${config.filePath:filePath}")
     private String filePath;
 
     @Value("${spring.application.name}")
